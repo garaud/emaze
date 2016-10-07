@@ -16,7 +16,7 @@
 
 (require 'cl-lib)
 
-(defun grid (height width)
+(defun make-grid (height width)
   "Make a grid with height `HEIGHT' and width `WIDTH'."
   (make-list height (make-list width 'c)))
 

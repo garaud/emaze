@@ -5,8 +5,9 @@
 
 (ert-deftest compute-cell-number ()
   "Compute the number of grid cells."
-  (should (equal (ncell (grid 5 5)) 25))
-  (should (equal (ncell (grid 2 2)) 4)))
+  (should (equal (ncell (make-grid 5 5)) 25))
+  (should (equal (ncell (make-grid 7 3)) 21))
+  (should (equal (ncell (make-grid 2 2)) 4)))
 
 
 
