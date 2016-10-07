@@ -11,7 +11,10 @@
   (should (equal (ncell (make-grid 0 0))  0))
   (should (equal (ncell (make-grid 2 2)) 4)))
 
-
+(ert-deftest compute-height ()
+  "Compute the height of a grid."
+  (should (equal (height (make-grid 5 2)) 5))
+  (should (equal (height (make-grid 1 10)) 1)))
 
 
 ;; Local Variables:

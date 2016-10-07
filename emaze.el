@@ -26,7 +26,7 @@
 
 (defun height (grid)
   "Height of the grid `GRID'."
-  ())
+  (length grid))
 
 (defun width (grid)
   "Width of the grid `GRID'."
