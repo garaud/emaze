@@ -16,18 +16,9 @@
 
 (require 'cl-lib)
 
-
 (defun grid (height width)
-  "Make a grid."
-  (list '(c c c c c)
-        '(c c c c c)
-        '(c c c c c)
-        '(c c c c c)
-        '(c c c c c)))
-
-(length (grid 5 5))
-
-
+  "Make a grid with height `HEIGHT' and width `WIDTH'."
+  (make-list height (make-list width 'c)))
 
 (defun ncell (grid)
   "Count the number of cells."
