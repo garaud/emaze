@@ -30,7 +30,7 @@
 
 (defun width (grid)
   "Width of the grid `GRID'."
-  ())
+  (length (car grid)))
 
 
 ;; +--------+

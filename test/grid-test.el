@@ -16,6 +16,12 @@
   (should (equal (height (make-grid 5 2)) 5))
   (should (equal (height (make-grid 1 10)) 1)))
 
+(ert-deftest compute-width ()
+  "Compute the width of a grid."
+  (should (equal (width (make-grid 5 2)) 2))
+  (should (equal (width (make-grid 1 1)) 1))
+  (should (equal (width (make-grid 1 10)) 10)))
+
 
 ;; Local Variables:
 ;; indent-tabs-mode: nil
