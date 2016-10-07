@@ -1,11 +1,9 @@
 ;;; emaze.el --- Maze generator for Emacs
 
 ;; Authors: TODO
-;; URL: TODO
+;; URL: https://github.com/garaud/emaze
 ;; Keywords: game, maze
 ;; Version: 0.1
-;; Package-Requires: ((pkg-info "0.4"))
-
 
 ;;; Commentary:
 ;;
@@ -16,19 +14,19 @@
 
 (require 'cl-lib)
 
-(defun make-grid (height width)
+(defun emaze-make-grid (height width)
   "Make a grid with height `HEIGHT' and width `WIDTH'."
   (make-list height (make-list width 'c)))
 
-(defun ncell (grid)
+(defun emaze-ncell (grid)
   "Count the number of cells for a given `GRID'."
   (apply #'+ (cl-map 'list #'length grid)))
 
-(defun height (grid)
+(defun emaze-height (grid)
   "Height of the grid `GRID'."
   (length grid))
 
-(defun width (grid)
+(defun emaze-width (grid)
   "Width of the grid `GRID'."
   (length (car grid)))
 
