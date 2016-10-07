@@ -21,19 +21,16 @@
   (make-list height (make-list width 'c)))
 
 (defun ncell (grid)
-  "Count the number of cells."
+  "Count the number of cells for a given `GRID'."
   (apply #'+ (cl-map 'list #'length grid)))
 
 (defun height (grid)
-  "Height of the grid."
+  "Height of the grid `GRID'."
   ())
 
 (defun width (grid)
-  "Width of the grid"
+  "Width of the grid `GRID'."
   ())
-
-
-
 
 
 ;; +--------+
