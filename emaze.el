@@ -16,7 +16,14 @@
 
 (defun emaze-make-grid (height width)
   "Make a grid with height `HEIGHT' and width `WIDTH'."
-  (make-list height (make-list width 'c)))
+  (let (grid)
+    (dolist (row (number-sequence 0 (- height 1)) grid)
+      (setq grid (cl-concatenate 'list grid (-row-gen row width))))))
+
+(defun -row-gen (row colwidth)
+  "Generate a list of cell for the row `ROW' of width `COLWIDTH'."
+  (list (cl-map 'list (lambda (x) (list row x))
+                (number-sequence 0 (- colwidth 1)))))
 
 (defun emaze-ncell (grid)
   "Count the number of cells for a given `GRID'."
