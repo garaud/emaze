@@ -4,6 +4,10 @@ Mazes generator inside your favorite editor.
 
 ## Test
 
+Just `make test`
+
+or
+
 * `cd test`
 * `./run-tests`
 
