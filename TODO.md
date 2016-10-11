@@ -9,8 +9,6 @@
 * a cell can be an hash-table with its coordinate, but also its neighbors
   (north, south, west, east)
 
-* replace cl-lib by dash?
-
 * use `package-install-from-buffer` to have a development environment
   http://endlessparentheses.com/new-in-emacs-25-1-easily-install-multifile-package-from-a-directory.html
 
