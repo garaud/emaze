@@ -1,14 +1,15 @@
-;;; emaze.el --- Maze generator for Emacs
+;;; emaze.el --- Mazes generator for Emacs
 
-;; Authors: TODO
+;; Authors: Damien Garaud
 ;; URL: https://github.com/garaud/emaze
 ;; Keywords: game, maze
 ;; Version: 0.1
+;; Package-requires: ((dash "2.13.0"))
 
 ;;; Commentary:
 ;;
 ;;
-;; Maze generator for Emacs
+;; Mazes generator for Emacs
 ;;
 ;;; Code:
 
