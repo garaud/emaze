@@ -12,7 +12,7 @@
 ;;
 ;;; Code:
 
-(require 'cl-lib)
+(require 'dash)
 
 (defun emaze-make-grid (height width)
   "Make a grid with height `HEIGHT' and width `WIDTH'."
@@ -22,12 +22,12 @@
 
 (defun -row-gen (row colwidth)
   "Generate a list of cell for the row `ROW' of width `COLWIDTH'."
-  (list (cl-map 'list (lambda (x) (list row x))
+  (list (-map (lambda (x) (list row x))
                 (number-sequence 0 (- colwidth 1)))))
 
 (defun emaze-ncell (grid)
   "Count the number of cells for a given `GRID'."
-  (apply #'+ (cl-map 'list #'length grid)))
+  (apply #'+ (-map 'length grid)))
 
 (defun emaze-height (grid)
   "Height of the grid `GRID'."
