@@ -19,9 +19,9 @@
   "Make a grid with height `HEIGHT' and width `WIDTH'."
   (let (grid)
     (dolist (row (number-sequence 0 (- height 1)) grid)
-      (setq grid (cl-concatenate 'list grid (-row-gen row width))))))
+      (setq grid (-concat grid (emaze--row-gen row width))))))
 
-(defun -row-gen (row colwidth)
+(defun emaze--row-gen (row colwidth)
   "Generate a list of cell for the row `ROW' of width `COLWIDTH'."
   (list (-map (lambda (x) (list row x))
                 (number-sequence 0 (- colwidth 1)))))
