@@ -38,6 +38,17 @@
   "Width of the grid `GRID'."
   (length (car grid)))
 
+(defun emaze-make-cell (x y)
+  "Make a cell with `X', `Y' coordinates."
+  (let ((table (make-hash-table :size 6)))
+    (progn
+      (puthash :x x table)
+      (puthash :y y table)
+      (puthash :north 1 table)
+      (puthash :east 1 table)
+      (puthash :south 1 table)
+      (puthash :west 1 table)
+      table)))
 
 ;; +--------+
 ;; |        |
