@@ -23,8 +23,8 @@
 
 (defun emaze--row-gen (row colwidth)
   "Generate a list of cell for the row `ROW' of width `COLWIDTH'."
-  (list (-map (lambda (x) (list row x))
-                (number-sequence 0 (- colwidth 1)))))
+  (list (-map (lambda (y) (emaze-make-cell row y))
+              (number-sequence 0 (- colwidth 1)))))
 
 (defun emaze-ncell (grid)
   "Count the number of cells for a given `GRID'."
