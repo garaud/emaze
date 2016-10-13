@@ -30,7 +30,8 @@ table
   (let (result)
     (setq result (make-hash-table))
     (dolist (key keys result)
-      (puthash key (gethash key table) result))))
+      (if (gethash key table)
+          (puthash key (gethash key table) result)))))
 
 
 (select-keys table '(:name :age))
