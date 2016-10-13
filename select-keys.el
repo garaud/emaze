@@ -23,6 +23,18 @@
 (puthash :age 31 table)
 (puthash :sex 'M table)
 
+table
+
+(defun select-keys (table keys)
+  "From hash-table `TABLE', select specific `KEYS'."
+  (let (result)
+    (setq result (make-hash-table))
+    (dolist (key keys result)
+      (puthash key (gethash key table) result))))
+
+
+(select-keys table '(:name :age))
+
 
 
 ;;; select-keys.el ends here
