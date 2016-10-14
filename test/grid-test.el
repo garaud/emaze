@@ -22,6 +22,11 @@
   (should (equal (emaze-width (emaze-make-grid 1 1)) 1))
   (should (equal (emaze-width (emaze-make-grid 1 10)) 10)))
 
+(ert-deftest get-cell ()
+  "Get the cell for a specific coordinate."
+  (let ((grid (emaze-make-grid 4 4)))
+    (should (not (ht-empty? (emaze-get-cell 2 2 grid))))
+    (should (equal (emaze-get-cell 4 1 grid) nil))))
 
 ;; Local Variables:
 ;; indent-tabs-mode: nil
