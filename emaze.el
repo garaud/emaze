@@ -63,10 +63,13 @@ Return nil if not found."
       (puthash :west (list (- x 1) y) table)
       table)))
 
+;; find a better way to filter nil neighbors
 (defun emaze-cell-neighbors (cell grid)
   "Return the list of neigbhors of CELL in the GRID."
-  (-map (lambda (c) (emaze-get-cell (car c) (cadr c) grid)) ;; find a way to destrure the (x y)
-        (ht-values (ht-select-keys cell '(:north :east :south :west)))))
+  (-filter (lambda (x) (not (equal x nil)))
+    (-map (lambda (c) (emaze-get-cell (car c) (cadr c) grid)) ;; find a way to destrure the (x y)
+        (ht-values (ht-select-keys cell '(:north :east :south :west))))))
+
 
 ;; +--------+
 ;; |        |

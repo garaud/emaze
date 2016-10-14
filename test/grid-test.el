@@ -29,6 +29,14 @@
     (should (equal (emaze-get-cell 4 1 grid) nil))
     (should (equal (emaze-get-cell -1 1 grid) nil))))
 
+(ert-deftest emaze-test-cell-neighbors ()
+  "Get the size of the neighbors list of a cell."
+  (let ((grid (emaze-make-grid 4 4))
+        (cell_a (emaze-make-cell 0 0))
+        (cell_b (emaze-make-cell 2 2)))
+    (should (equal (length (emaze-cell-neighbors cell_a grid)) 2))
+    (should (equal (length (emaze-cell-neighbors cell_b grid)) 4))))
+
 ;; Local Variables:
 ;; indent-tabs-mode: nil
 ;; End:
