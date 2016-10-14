@@ -57,10 +57,10 @@ Return nil if not found."
     (progn
       (puthash :x x table)
       (puthash :y y table)
-      (puthash :north 1 table)
-      (puthash :east 1 table)
-      (puthash :south 1 table)
-      (puthash :west 1 table)
+      (puthash :north (list x (+ y 1)) table)
+      (puthash :east (list (+ x 1) y) table)
+      (puthash :south (list x (- y 1)) table)
+      (puthash :west (list (- x 1) y) table)
       table)))
 
 ;; +--------+
