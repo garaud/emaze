@@ -26,7 +26,8 @@
   "Get the cell for a specific coordinate."
   (let ((grid (emaze-make-grid 4 4)))
     (should (not (ht-empty? (emaze-get-cell 2 2 grid))))
-    (should (equal (emaze-get-cell 4 1 grid) nil))))
+    (should (equal (emaze-get-cell 4 1 grid) nil))
+    (should (equal (emaze-get-cell -1 1 grid) nil))))
 
 ;; Local Variables:
 ;; indent-tabs-mode: nil

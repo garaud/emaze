@@ -34,7 +34,8 @@
   "Get the cell (X, Y) from the GRID.
 
 Return nil if not found."
-  (nth y (nth x grid)))
+  (if (and (>= x 0) (>= y 0))
+      (nth y (nth x grid))))
 
 (defun emaze-rand-cell (grid)
   "Get a random cell from the GRID."
