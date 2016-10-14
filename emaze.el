@@ -36,6 +36,12 @@
 Return nil if not found."
   (nth y (nth x grid)))
 
+(defun emaze-rand-cell (grid)
+  "Get a random cell from the GRID."
+  (let ((x (random (emaze-height grid)))
+        (y (random (emaze-width grid))))
+    (emaze-get-cell x y grid)))
+
 (defun emaze-height (grid)
   "Height of the grid `GRID'."
   (length grid))
