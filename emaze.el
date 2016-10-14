@@ -30,6 +30,12 @@
   "Count the number of cells for a given `GRID'."
   (apply #'+ (-map 'length grid)))
 
+(defun emaze-get-cell (x y grid)
+  "Get the cell (X, Y) from the GRID.
+
+Return nil if not found."
+  (nth y (nth x grid)))
+
 (defun emaze-height (grid)
   "Height of the grid `GRID'."
   (length grid))
