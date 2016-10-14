@@ -10,6 +10,9 @@
 
 (pp (emaze-make-grid 5 5))
 
+(setq grid (emaze-make-grid 5 5))
+
+(ht-items (emaze-get-cell 1 4 grid))
 
 
 ;; Local Variables:
