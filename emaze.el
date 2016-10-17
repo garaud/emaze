@@ -4,7 +4,7 @@
 ;; URL: https://github.com/garaud/emaze
 ;; Keywords: game, maze
 ;; Version: 0.1
-;; Package-requires: ((dash "2.13.0"))
+;; Package-requires: ((dash "2.13.0") (ht "2.1"))
 
 ;;; Commentary:
 ;;
@@ -14,6 +14,28 @@
 ;;; Code:
 
 (require 'dash)
+(require 'ht)
+
+
+(defvar emaze-height-default '("5"))
+(defvar emaze-width-default '("5"))
+
+
+(defun gen-grid ()
+  "Generate a grid (HEIGHT, WIDTH)."
+  (interactive
+   (progn
+     (let ((buffer (generate-new-buffer "*emaze*"))
+           (height (string-to-int
+                    (read-from-minibuffer "Height: " nil nil nil nil emaze-height-default)))
+           (width (string-to-int
+                   (read-from-minibuffer "Width: " nil nil nil nil emaze-width-default))))
+       (switch-to-buffer buffer)
+       (table-insert height width 3 1)))))
+
+
+
+;;(get-buffer-create "*emaze*")
 
 (defun emaze-make-grid (height width)
   "Make a grid with height `HEIGHT' and width `WIDTH'."
