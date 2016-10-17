@@ -17,6 +17,7 @@
 (ht-items (emaze-get-cell 1 4 grid))
 
 (emaze-cell-neighbors cell grid)
+(-map (lambda (x) (ht-items x)) (emaze-cell-neighbors cell grid))
 
 
 ;; Local Variables:
