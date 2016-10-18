@@ -26,14 +26,12 @@
   (interactive
    (progn
      (let ((buffer (generate-new-buffer "*emaze*"))
-           (height (string-to-int
+           (height (string-to-number
                     (read-from-minibuffer "Height: " nil nil nil nil emaze-height-default)))
-           (width (string-to-int
+           (width (string-to-number
                    (read-from-minibuffer "Width: " nil nil nil nil emaze-width-default))))
        (switch-to-buffer buffer)
        (table-insert height width 3 1)))))
-
-
 
 ;;(get-buffer-create "*emaze*")
 
