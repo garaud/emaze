@@ -39,7 +39,7 @@
 
 (ert-deftest emaze-test-draw-full-row ()
   "Check the drawing string for a full line of cells."
-  (should (equal "+---+---+---+" (emaze-draw-full-line 3))))
+  (should (equal "+---+---+---+\n" (emaze-draw-full-line 3))))
 
 
 ;; Local Variables:

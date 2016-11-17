@@ -94,21 +94,29 @@ Return nil if not found."
   "Draw a full line of width WIDTH into a string."
   (let ((line "+"))
     (dotimes (row width line)
-      (setq line (concat line "---+")))))
+      (setq line (concat line "---+")))
+    (concat line "\n")))
 
+(defun emaze-draw-line (cells)
+  "Draw a line of CELLS."
+  (let ((top "|")
+        (bottom "+")
+        (body "   "))
+    (dolist (cell cells)
+      (if (ht-get cell :east)
+          (setq top (concat  top body  "|"))
+        (setq top (concat top body " ")))
+      (if (ht-get cell :south)
+          (setq bottom (concat bottom "---+"))
+        (setq bottom (concat bottom body "+"))))
+    (concat top "\n" bottom)))
 
-;; +--------+
-;; |        |
-;; |        |
-;; |        |
-;; |        |
-;; +--------+
-
-(defun draw-line (n)
-  "Draw a line with `N' chars."
-  (insert "--------"))
-
-
+(defun emaze-draw-grid (grid)
+  "Draw each cell of a GRID."
+  (let ((output (emaze-draw-full-line (emaze-width grid))))
+    (dolist (cells grid)
+      (setq output (concat output (emaze-draw-line cells) "\n")))
+    output))
 
 
 (provide 'emaze)
