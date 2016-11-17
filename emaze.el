@@ -17,23 +17,23 @@
 (require 'ht)
 
 
-(defvar emaze-height-default '("5"))
-(defvar emaze-width-default '("5"))
+(defvar emaze-height-default "5")
+(defvar emaze-width-default "5")
 
 
 (defun gen-grid ()
-  "Generate a grid (HEIGHT, WIDTH)."
+  "Generate a grid (HEIGHT, WIDTH) in the buffer *emaze*."
   (interactive
    (progn
-     (let ((buffer (generate-new-buffer "*emaze*"))
+     (let ((buffer (get-buffer-create "*emaze*"))
            (height (string-to-number
                     (read-from-minibuffer "Height: " nil nil nil nil emaze-height-default)))
            (width (string-to-number
                    (read-from-minibuffer "Width: " nil nil nil nil emaze-width-default))))
+       ;; (message "a grid of (%s, %s)" height width)))))
        (switch-to-buffer buffer)
-       (table-insert height width 3 1)))))
-
-;;(get-buffer-create "*emaze*")
+       (insert (concat "grid: (" (number-to-string height) ", " (number-to-string width) ")\n"))
+       (insert (emaze-draw-grid (emaze-make-grid height width)))))))
 
 (defun emaze-make-grid (height width)
   "Make a grid with height `HEIGHT' and width `WIDTH'."
