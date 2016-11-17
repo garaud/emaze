@@ -90,6 +90,12 @@ Return nil if not found."
     (-map (lambda (c) (emaze-get-cell (car c) (cadr c) grid)) ;; find a way to destrure the (x y)
         (ht-values (ht-select-keys cell '(:north :east :south :west))))))
 
+(defun emaze-draw-full-line (width)
+  "Draw a full line of width WIDTH into a string."
+  (let ((line "+"))
+    (dotimes (row width line)
+      (setq line (concat line "---+")))))
+
 
 ;; +--------+
 ;; |        |
