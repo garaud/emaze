@@ -4,5 +4,8 @@
   e.g. `(vector (vector 1 2 3) (vector 3 4 5) (vector 6 7 8))`. It will be
   possible to have a constant-time access to the cells?
 
+* to draw a grid, make a better default & 'history' value in the
+  `read-from-minibuffer` function
+
 * begin to implement the first and simple mazes generator algorithm: the binary
   tree algorithm
