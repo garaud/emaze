@@ -38,6 +38,11 @@
     (should (equal (length (emaze-cell-neighbors cell_a grid)) 2))
     (should (equal (length (emaze-cell-neighbors cell_b grid)) 4))))
 
+(ert-deftest emaze-test-draw-full-row ()
+  "Check the drawing string for a full line of cells."
+  (should (equal "+---+---+---+\n" (emaze-draw-full-line 3))))
+
+
 ;; Local Variables:
 ;; indent-tabs-mode: nil
 ;; End:

@@ -18,23 +18,23 @@
 (require 'ht)
 
 
-(defvar emaze-height-default '("5"))
-(defvar emaze-width-default '("5"))
+(defvar emaze-height-default "5")
+(defvar emaze-width-default "5")
 
 
 (defun gen-grid ()
-  "Generate a grid (HEIGHT, WIDTH)."
+  "Generate a grid (HEIGHT, WIDTH) in the buffer *emaze*."
   (interactive
    (progn
-     (let ((buffer (generate-new-buffer "*emaze*"))
+     (let ((buffer (get-buffer-create "*emaze*"))
            (height (string-to-number
                     (read-from-minibuffer "Height: " nil nil nil nil emaze-height-default)))
            (width (string-to-number
                    (read-from-minibuffer "Width: " nil nil nil nil emaze-width-default))))
+       ;; (message "a grid of (%s, %s)" height width)))))
        (switch-to-buffer buffer)
-       (table-insert height width 3 1)))))
-
-;;(get-buffer-create "*emaze*")
+       (insert (concat "grid: (" (number-to-string height) ", " (number-to-string width) ")\n"))
+       (insert (emaze-draw-grid (emaze-make-grid height width)))))))
 
 (defun emaze-make-grid (height width)
   "Make a grid with height `HEIGHT' and width `WIDTH'."
@@ -91,19 +91,33 @@ Return nil if not found."
     (-map (lambda (c) (emaze-get-cell (car c) (cadr c) grid)) ;; find a way to destrure the (x y)
         (ht-values (ht-select-keys cell '(:north :east :south :west))))))
 
+(defun emaze-draw-full-line (width)
+  "Draw a full line of width WIDTH into a string."
+  (let ((line "+"))
+    (dotimes (row width line)
+      (setq line (concat line "---+")))
+    (concat line "\n")))
 
-;; +--------+
-;; |        |
-;; |        |
-;; |        |
-;; |        |
-;; +--------+
+(defun emaze-draw-line (cells)
+  "Draw a line of CELLS."
+  (let ((top "|")
+        (bottom "+")
+        (body "   "))
+    (dolist (cell cells)
+      (if (ht-get cell :east)
+          (setq top (concat  top body  "|"))
+        (setq top (concat top body " ")))
+      (if (ht-get cell :south)
+          (setq bottom (concat bottom "---+"))
+        (setq bottom (concat bottom body "+"))))
+    (concat top "\n" bottom)))
 
-(defun draw-line (n)
-  "Draw a line with `N' chars."
-  (insert "--------"))
-
-
+(defun emaze-draw-grid (grid)
+  "Draw each cell of a GRID."
+  (let ((output (emaze-draw-full-line (emaze-width grid))))
+    (dolist (cells grid)
+      (setq output (concat output (emaze-draw-line cells) "\n")))
+    output))
 
 
 (provide 'emaze)
