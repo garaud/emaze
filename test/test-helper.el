@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (require 'f)
 
 (defvar emaze-test/test-path
