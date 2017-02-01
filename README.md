@@ -10,12 +10,14 @@ Mazes generator inside your favorite editor.
 Dev requirements:
 
 * Cask
+* ert-runner
 
 ## Test
 
-Just `make test`
+First, [install Cask](https://github.com/cask/cask), then install the Emacs Lisp
+dependencies with a `cask install`. Then, just `make test`.
 
-or
+or you can do:
 
 * `cd test`
 * `./run-tests`
