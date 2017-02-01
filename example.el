@@ -1,6 +1,4 @@
-;;; Example.el
-;;; -*- lexical-binding: t -*-
-;;
+;;; Example.el -*- lexical-binding: t -*-
 ;;
 ;;; Code:
 

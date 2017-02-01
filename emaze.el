@@ -1,5 +1,4 @@
-;;; emaze.el --- Mazes generator for Emacs
-;;; -*- lexical-binding: t -*-
+;;; emaze.el --- Mazes generator for Emacs -*- lexical-binding: t -*-
 
 ;; Authors: Damien Garaud
 ;; URL: https://github.com/garaud/emaze
